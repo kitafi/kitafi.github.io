@@ -1,0 +1,26 @@
+{
+    "mwalimu": {
+        "meaning": ["professor", "teacher"],
+        "class": 1
+    },
+    "profesa": {
+        "meaning": "professor",
+        "class": 1
+    },
+    "walimu": {
+        "meaning": ["professors", "teachers"],
+        "class": 2
+    },
+    "waalimu": {
+        "meaning": ["professors", "teachers"],
+        "class": 2
+    },
+    "mwanafunzi": {
+        "meaning": ["student", "pupil"],
+        "class": 1
+    },
+    "wanafunzi": {
+        "meaning": ["student", "pupils"],
+        "class": 2
+    }
+}
