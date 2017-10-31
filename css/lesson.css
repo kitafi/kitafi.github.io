@@ -1,0 +1,55 @@
+body {
+    background: #8f8f8f;
+    transition: background 0.4s ease-in-out;
+}
+body.question {
+    background: #9C27B0;
+}
+body.interactive {
+    background: #2196F3;
+}
+body.learn {
+    background: #4CAF50;
+}
+#lesson {
+    padding-bottom: 50px;
+}
+.carousel-indicators li:hover {
+    cursor:pointer;
+}
+.language-box {
+  width: 80%;
+  display: block;
+  margin: 10px auto;
+  background: rgba(0, 0, 0, 0.05);
+  border: solid 2px rgba(0, 0, 0, 0.1);
+  padding: 15px 25px;
+  text-align: center;
+  color: #ffffff;
+  font-size: 2em;
+  position: relative;
+}
+.language-box, .language-box input, .language-box span {
+    font-family: monaco, Consolas, "Lucida Console", monospace;
+}
+.language-box input {
+  color: #ffffff;
+  background: none;
+  border: none;
+  width: 100px;
+  min-width: 100px;
+  border-bottom: solid 3px rgba(255, 255, 255, 0.8);
+  text-align: center;
+}
+.language-box input:focus {
+    outline: none;
+}
+.english::before {
+
+}
+.english {
+
+}
+.swahili {
+
+}
