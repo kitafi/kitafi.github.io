@@ -6,6 +6,9 @@ $(function() {
 		wrap: false
 	});
 
+	// Initialize tooltips
+	$('[data-toggle="tooltip"]').tooltip();
+
 	// Key controls for carousel
 	document.addEventListener('keydown', function(e) {
 		// If it was the left or right key, and there are no focused inputs
@@ -83,6 +86,8 @@ $(function() {
 			};
 
 			var gradeButton = item.find('.grade');
+			var solutionButton = item.find('.solution');
+
 			var gradeQuestion = function() {
 				var correct = true;
 				for (var i = 0 ; i < inputList.length ; i++) {
@@ -108,6 +113,12 @@ $(function() {
 				}
 			};
 			gradeButton.click(gradeQuestion);
+
+			solutionButton.click(function() {
+				inputList.forEach(function(input) {
+					setInput(input, input.data('expected'));
+				});
+			});
 
 			item.find('input').each(function() {
 				var input = $(this);

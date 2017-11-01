@@ -1,18 +1,15 @@
 body {
     background: #8f8f8f;
-    transition: background 0.4s ease-in-out;
+    transition: background-color 0.4s ease-in-out;
 }
 body.question {
-    background: #9C27B0;
+    background-color: #9C27B0;
 }
 body.interactive {
-    background: #E91E63;
+    background-color: #E91E63;
 }
 body.learn {
-    background: #4CAF50;
-}
-body.conversation {
-    background: #3F51B5;
+    background-color: #4CAF50;
 }
 #lesson {
     padding-top: 20px;
@@ -68,7 +65,7 @@ h3.instruction {
   content: 'Swahili';
 }
 .language-box, .language-box input, .language-box span,
-.instruction code {
+.instruction code, .tooltip {
     font-family: monaco, Consolas, "Lucida Console", monospace;
 }
 .language-box input {
@@ -89,6 +86,15 @@ h3.instruction {
 .language-box input:focus {
     outline: none;
 }
+.tooltip {
+    font-size: 1em;
+}
+[data-toggle="tooltip"] {
+    border-bottom: dotted 1px rgba(255, 255, 255, 0.5);
+}
+[data-toggle="tooltip"]:hover {
+    cursor: help;
+}
 .instruction code {
     background: rgba(0, 0, 0, 0.05);
     color: #ffffff;
@@ -98,6 +104,7 @@ h3.instruction {
 }
 .action button {
   padding: 15px 20px;
+  margin-right: 10px;
   font-size: 20px;
   line-height: 20px;
   border-radius: 30px;
