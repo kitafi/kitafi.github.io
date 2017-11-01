@@ -6,7 +6,7 @@ body.question {
     background: #9C27B0;
 }
 body.interactive {
-    background: #2196F3;
+    background: #E91E63;
 }
 body.learn {
     background: #4CAF50;
@@ -80,6 +80,12 @@ h3.instruction {
   border-bottom: solid 3px rgba(255, 255, 255, 0.8);
   text-align: center;
 }
+.language-box input.correct {
+  border-color: rgba(50, 255, 50, 0.8);
+}
+.language-box input.wrong {
+  border-color: rgba(255, 50, 50, 0.8);
+}
 .language-box input:focus {
     outline: none;
 }
@@ -95,19 +101,21 @@ h3.instruction {
   font-size: 20px;
   line-height: 20px;
   border-radius: 30px;
-  background: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.1);
   color: #ffffff;
   border: solid 3px rgba(0, 0, 0, 0.2);
-  transition: background 0.4s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
+  transition: padding-right 0.2s ease-in-out;
 }
 .action button.grade.correct,
 .action button.grade.wrong {
     position: relative;
     padding-right: 55px;
+    font-weight: 900;
 }
 .action button.grade.correct::before {
     position: absolute;
-    background-image: url('/image/icon/check.png');
+    background-image: url('/image/icon/correct.png');
     content: '';
     right: 1px;
     top: 1px;
@@ -117,7 +125,7 @@ h3.instruction {
 }
 .action button.grade.wrong::before {
     position: absolute;
-    background-image: url('/image/icon/incorrect.png');
+    background-image: url('/image/icon/wrong.png');
     content: '';
     right: 1px;
     top: 1px;

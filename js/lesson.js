@@ -6,6 +6,15 @@ $(function() {
 		wrap: false
 	});
 
+	// Key controls for carousel
+	document.addEventListener('keydown', function(e) {
+		// If it was the left or right key, and there are no focused inputs
+		if ((e.which == 37 || e.which == 39) &&
+			lesson.find('.active input:focus').length == 0) {
+			lesson.carousel((e.which == 39) ? 'next' : 'prev');
+		}
+	});
+
 	var slideTypes = ['interactive', 'question', 'learn'];
 
 	lesson.on('slide.bs.carousel', function() {
@@ -78,16 +87,25 @@ $(function() {
 				var correct = true;
 				for (var i = 0 ; i < inputList.length ; i++) {
 					if (inputList[i].data('expected') != null && !isCorrect(inputList[i])) {
+						inputList[i].removeClass('correct').addClass('wrong');
 						inputList[i].focus();
 						correct = false;
 						break;
+					}
+					else {
+						inputList[i].removeClass('wrong').addClass('correct');
 					}
 				}
 
 				if (correct)
 					gradeButton.text('Correct').addClass('correct').removeClass('wrong');
-				else
+				else {
 					gradeButton.text('Try again').addClass('wrong').removeClass('correct');
+					setTimeout(function() {
+						if (! gradeButton.hasClass('correct'))
+							gradeButton.text('Check answer').removeClass('wrong');
+					}, 2000);
+				}
 			};
 			gradeButton.click(gradeQuestion);
 
