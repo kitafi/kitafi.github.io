@@ -64,20 +64,45 @@ $(function() {
 		}
 		else if (type == 'question') {
 			var inputList = [];
-			var gradeQuestion = function() {
-				for (var i = 0 ; i < inputList.length ; i++) {
-
+			var isCorrect = function(input) {
+				if (input.data('exact') == 'true') {
+					return input.data('expected') === input.val();
+				}
+				else {
+					return input.data('expected').toLowerCase() == input.val().toLowerCase();
 				}
 			};
 
+			var gradeButton = item.find('.grade');
+			var gradeQuestion = function() {
+				var correct = true;
+				for (var i = 0 ; i < inputList.length ; i++) {
+					if (inputList[i].data('expected') != null && !isCorrect(inputList[i])) {
+						inputList[i].focus();
+						correct = false;
+						break;
+					}
+				}
+
+				if (correct)
+					gradeButton.text('Correct').addClass('correct').removeClass('wrong');
+				else
+					gradeButton.text('Try again').addClass('wrong').removeClass('correct');
+			};
+			gradeButton.click(gradeQuestion);
+
 			item.find('input').each(function() {
 				var input = $(this);
+				var inputIndex = inputList.length;
 				inputList.push(input);
 				var name = input.attr('name');
 
 				input.keyup(function(e) {
 					if (e.which == 13) {
-
+						if (inputIndex == inputList.length - 1)
+							gradeQuestion();
+						else
+							inputList[inputIndex + 1].focus();
 					}
 				});
 			});
