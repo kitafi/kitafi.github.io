@@ -17,17 +17,36 @@ body.learn {
 .carousel-indicators li:hover {
     cursor:pointer;
 }
+h3.instruction {
+  text-align: center;
+  font-size: 1.2em;
+  padding: 15px 10%;
+  color: rgba(255, 255, 255, 0.8);
+}
 .language-box {
   width: 80%;
   display: block;
   margin: 10px auto;
   background: rgba(0, 0, 0, 0.05);
   border: solid 2px rgba(0, 0, 0, 0.1);
-  padding: 15px 25px;
+  padding: 18px 25px;
   text-align: center;
   color: #ffffff;
   font-size: 2em;
   position: relative;
+}
+.language-box::before {
+  position: absolute;
+  left: 10px;
+  top: 5px;
+  font-size: 12px;
+  opacity: 0.5;
+}
+.language-box.english::before {
+  content: 'English';
+}
+.language-box.swahili::before {
+  content: 'Swahili';
 }
 .language-box, .language-box input, .language-box span {
     font-family: monaco, Consolas, "Lucida Console", monospace;
@@ -43,6 +62,26 @@ body.learn {
 }
 .language-box input:focus {
     outline: none;
+}
+.action {
+  text-align: center;
+}
+.action button {
+  padding: 15px 20px;
+  font-size: 20px;
+  line-height: 20px;
+  border-radius: 30px;
+  background: rgba(0, 0, 0, 0.1);
+  color: #ffffff;
+  border: solid 3px rgba(0, 0, 0, 0.2);
+  transition: background 0.4s ease-in-out;
+}
+.action button:hover {
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.05);
+}
+.action button:focus {
+  outline: none;
 }
 .english::before {
 

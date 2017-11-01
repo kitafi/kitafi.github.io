@@ -1,14 +1,16 @@
 $(function() {
-	$('#lesson').carousel({
+	var lesson = $('#lesson');
+
+	lesson.carousel({
 		interval: false,
 		wrap: false
 	});
 
 	var slideTypes = ['interactive', 'question', 'learn'];
 
-	$('#lesson').on('slide.bs.carousel', function() {
+	lesson.on('slide.bs.carousel', function() {
 		setTimeout(function() {
-			var type = $('#lesson').find('.carousel-item.active').last().data('type');
+			var type = lesson.find('.carousel-item.active').last().data('type');
 			$('body').removeClass(slideTypes.join(' '));
 			$('body').addClass(type);
 		}, 700);
@@ -38,6 +40,10 @@ $(function() {
 			});
 		});
 
+		item.find('.next').click(function() {
+			lesson.carousel('next');
+		});
+
 		if (type == 'interactive') {
 			var inputMap = {};
 
@@ -56,8 +62,25 @@ $(function() {
 				});
 			});
 		}
-		else {
+		else if (type == 'question') {
+			var inputList = [];
+			var gradeQuestion = function() {
+				for (var i = 0 ; i < inputList.length ; i++) {
 
+				}
+			};
+
+			item.find('input').each(function() {
+				var input = $(this);
+				inputList.push(input);
+				var name = input.attr('name');
+
+				input.keyup(function(e) {
+					if (e.which == 13) {
+
+					}
+				});
+			});
 		}
 	});
 });
