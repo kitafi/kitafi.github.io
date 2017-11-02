@@ -101,11 +101,13 @@ h3.instruction {
 }
 .action {
   text-align: center;
+  padding: 5px 15px;
 }
-.action button {
+.action button, .action a {
   padding: 15px 20px;
   margin-right: 10px;
   font-size: 20px;
+  text-decoration: none;
   line-height: 20px;
   border-radius: 30px;
   background-color: rgba(0, 0, 0, 0.1);
@@ -140,19 +142,12 @@ h3.instruction {
     height: 48px;
     opacity: 0.5;
 }
-.action button:hover {
+.action button:hover,
+.action a:hover {
   cursor: pointer;
   background: rgba(0, 0, 0, 0.05);
 }
-.action button:focus {
+.action button:focus,
+.action a:focus {
   outline: none;
-}
-.english::before {
-
-}
-.english {
-
-}
-.swahili {
-
 }
