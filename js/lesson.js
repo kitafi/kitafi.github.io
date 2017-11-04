@@ -12,9 +12,13 @@ $(function() {
 	// Key controls for carousel
 	document.addEventListener('keydown', function(e) {
 		// If it was the left or right key, and there are no focused inputs
-		if ((e.which == 37 || e.which == 39) &&
-			lesson.find('.active input:focus').length == 0) {
-			lesson.carousel((e.which == 39) ? 'next' : 'prev');
+		if (lesson.find('.active input:focus').length == 0) {
+			if (e.which == 37 || e.which == 8)
+				lesson.carousel('prev');
+			else if (e.which == 39 || e.which == 13)
+				lesson.carousel('next');
+
+			console.log(e.which);
 		}
 	});
 
@@ -102,8 +106,10 @@ $(function() {
 					}
 				}
 
-				if (correct)
+				if (correct) {
 					gradeButton.text('Correct').addClass('correct').removeClass('wrong');
+					inputList[inputList.length - 1].blur();
+				}
 				else {
 					gradeButton.text('Try again').addClass('wrong').removeClass('correct');
 					setTimeout(function() {
