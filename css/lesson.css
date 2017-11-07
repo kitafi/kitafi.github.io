@@ -43,13 +43,13 @@ h3.instruction {
   font-size: 2em;
   position: relative;
 }
-.language-box.conversation {
-    flex: 0 0 40%;
-    max-width: 40%;
-    display: inline-block;
+.conversation .language-box {
     font-size: 1em;
     padding-top: 25px;
+    margin: 10px 0px;
     text-align: left;
+    width: 96%;
+    margin-left: 2%;
 }
 .language-box::before {
   position: absolute;

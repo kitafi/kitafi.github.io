@@ -129,7 +129,7 @@ $(function() {
 			var updateTimeout;
 
 			if (inputState)
-				input.val(inputState);
+				setInput(input, inputState);
 
 			input.keydown(function() {
 				setInput(input);
