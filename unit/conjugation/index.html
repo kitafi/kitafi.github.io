@@ -1,13 +1,19 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-	<title>Likes and dislikes</title>
+
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
 <link href="/css/style.css" rel="stylesheet">
 
-	<link rel="stylesheet" href="/css/lesson.css">
+
+	<!-- <link href="css/small-business.css" rel="stylesheet"> -->
+
 </head>
-<body>
+
+<body style="background:#03A9F4">
+
 	<nav class="navbar navbar-expand-lg navbar-dark" style="background-color:rgba(0, 0, 0, 0.3)">
     <a class="navbar-brand" href="/">Learn Swahili</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,7 +38,7 @@
                         
                     
                         
-                        <a class="dropdown-item" href="/unit/conjugation">
+                        <a class="dropdown-item disabled">
                             Conjugation
                         </a>
                         
@@ -46,50 +52,8 @@
                 </div>
             </li>
             
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="unitDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Basic Conversation
-                </a>
-                <div class="dropdown-menu">
-                    <a href="/unit/basic-conversation" class="dropdown-item">
-                        All lessons
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    
-                        
-                        <a class="dropdown-item" href="/lesson/greeting">
-                            Greetings
-                        </a>
-                        
-                    
-                        
-                        <a class="dropdown-item" href="/lesson/introducing-yourself">
-                            Introducing yourself
-                        </a>
-                        
-                    
-                        
-                        <a class="dropdown-item" href="/lesson/pronouns">
-                            Pronouns
-                        </a>
-                        
-                    
-                        
-                        <a class="dropdown-item" href="/lesson/possessive-pronouns">
-                            Possessive Pronouns
-                        </a>
-                        
-                    
-                        
-                        <a class="dropdown-item" href="/lesson/present-tense">
-                            
-                        </a>
-                        
-                    
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled">Likes and dislikes</a>
+            <li class="nav-item active">
+                <a class="nav-link">Conjugation</a>
             </li>
             
         </ul>
@@ -101,29 +65,75 @@
     </div>
 </nav>
 
-	
-	<div id="lesson" class="carousel slide" data-id="likes-dislikes">
-		<ol class="carousel-indicators">
-			
-		</ol>
-		<div class="carousel-inner">
-			
-		</div>
-		<a class="carousel-control-prev" href="#lesson" role="button" data-slide="prev">
-			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-			<span class="sr-only">Previous</span>
-		</a>
-		<a class="carousel-control-next" href="#lesson" role="button" data-slide="next">
-			<span class="carousel-control-next-icon" aria-hidden="true"></span>
-			<span class="sr-only">Next</span>
-		</a>
-	</div>
-	
+
+  <div class="container">
+    <br>
+    <h1 class="text-light">Conjugation</h1>
+    <p class="lead text-light">Covers the Swahili noun classes and their conjugation into verbs and adjectives</p>
+
+    <div class="row">
+      
+      <div class="col-lg-3 col-md-4 col-sm-6" style="margin-bottom:30px;">
+        <div class="card h-100" style="background-color:#039BE5">
+          <a href="#"><img class="card-img-top" src="/image/lesson/default.jpg" alt=""></a>
+          <div class="card-body">
+            <h4 class="card-title">
+              <a class="text-white" href="/lesson/noun-classes">Noun classes</a>
+            </h4>
+            <p class="card-text text-white"></p>
+          </div>
+          <div class="card-footer text-right">
+            <a href="/lesson/noun-classes" class="btn btn-success">Start lesson</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-lg-3 col-md-4 col-sm-6" style="margin-bottom:30px;">
+        <div class="card h-100" style="background-color:#039BE5">
+          <a href="#"><img class="card-img-top" src="/image/lesson/default.jpg" alt=""></a>
+          <div class="card-body">
+            <h4 class="card-title">
+              <a class="text-white" href="/lesson/numbers">Numbers</a>
+            </h4>
+            <p class="card-text text-white"></p>
+          </div>
+          <div class="card-footer text-right">
+            <a href="/lesson/numbers" class="btn btn-success">Start lesson</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-lg-3 col-md-4 col-sm-6" style="margin-bottom:30px;">
+        <div class="card h-100" style="background-color:#039BE5">
+          <a href="#"><img class="card-img-top" src="/image/lesson/default.jpg" alt=""></a>
+          <div class="card-body">
+            <h4 class="card-title">
+              <a class="text-white" href="/lesson/verb-na">The -na verb</a>
+            </h4>
+            <p class="card-text text-white"></p>
+          </div>
+          <div class="card-footer text-right">
+            <a href="/lesson/verb-na" class="btn btn-success">Start lesson</a>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+
+    <br>
+  </div>
+
+	<footer class="py-5" style="background:rgba(0, 0, 0, 0.2)">
+  <div class="container">
+    <p class="m-0 text-center text-white">Copyright &copy;
+        <a class="text-light" href="https://keshav.is">Keshav Saharia</a> 2017</p>
+  </div>
+</footer>
 
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 
-	<script type="text/javascript" src="/js/lesson.js"></script>
 </body>
+
 </html>

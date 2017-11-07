@@ -1,9 +1,70 @@
 $(function() {
 	var lesson = $('#lesson');
+	var lessonId = lesson.data('id');
 
+	// Stores the user state of this lesson
+	var lessonState;
+
+	// If the browser supports local storage, then load the initial state
+	if (lessonId != null && window.localStorage != null) {
+		try {
+			lessonState = JSON.parse(window.localStorage.getItem(lessonId));
+		} catch(e) {}
+
+		if (lessonState == null) {
+			lessonState = {};
+			window.localStorage.setItem(lessonId, '{}');
+		}
+	}
+
+	// Utility method for setting the state
+	var setState = function(k, v) {
+		if (lessonState) {
+			if (Array.isArray(k)) {
+				let c = lessonState;
+				for (let i = 0 ; i < k.length - 1 ; i++) {
+					if (c[k[i]] == null)
+						c[k[i]] = {};
+					c = c[k[i]];
+				}
+				if (c != null && typeof c === 'object')
+					c[k[k.length - 1]] = v;
+			}
+			else
+				lessonState[k] = v;
+
+			window.localStorage.setItem(lessonId, JSON.stringify(lessonState));
+		}
+	};
+
+	// Utility method for retrieving the state
+	var getState = function(k) {
+		if (Array.isArray(k)) {
+			let c = lessonState;
+			for (let i = 0 ; i < k.length ; i++) {
+				c = c[k[i]];
+				if (c == null) return null;
+			}
+			return c;
+		}
+		else if (lessonState)
+			return lessonState[k];
+		return null;
+	};
+
+	// Initialize the bootstrap carousel
 	lesson.carousel({
 		interval: false,
 		wrap: false
+	});
+
+	// If there is an initial slide
+	if (getState('slide') != null)
+		lesson.carousel(getState('slide'));
+
+	// Initialize the lesson
+	lesson.find('.start-over').click(function() {
+		lesson.carousel(0);
 	});
 
 	// Initialize tooltips
@@ -17,22 +78,34 @@ $(function() {
 				lesson.carousel('prev');
 			else if (e.which == 39 || e.which == 13)
 				lesson.carousel('next');
-
-			console.log(e.which);
 		}
 	});
 
-	var slideTypes = ['interactive', 'question', 'learn'];
+	var slideTypes = ['interactive', 'question', 'learn'],
+		slideTimeout;
 
+	// Event that fires when the slide changes
 	lesson.on('slide.bs.carousel', function() {
-		setTimeout(function() {
-			var type = lesson.find('.carousel-item.active').last().data('type');
+		clearTimeout(slideTimeout);
+
+		slideTimeout = setTimeout(function() {
+			var activeItem = lesson.find('.carousel-item.active');
+			var type = activeItem.last().data('type');
 			$('body').removeClass(slideTypes.join(' '));
 			$('body').addClass(type);
-		}, 700);
+
+			var firstInput = activeItem.last().find('input').first();
+			if (firstInput) {
+				firstInput.focus();
+			}
+
+			// Save the slide number
+			setState('slide', activeItem.index());
+		}, 750);
 	});
 
-	$('body').addClass($('.carousel-item').first().data('type'));
+	// Initialize with the first slide visible
+	lesson.trigger('slide.bs.carousel');
 
 	function setInput(input, value) {
 		if (value != null)
@@ -51,8 +124,20 @@ $(function() {
 		// Ensure the input resizes with the text content
 		item.find('input').each(function() {
 			var input = $(this);
+			var inputStatePath = ['input', item.index(), input.index()];
+			var inputState = getState(inputStatePath);
+			var updateTimeout;
+
+			if (inputState)
+				input.val(inputState);
+
 			input.keydown(function() {
 				setInput(input);
+
+				clearTimeout(updateTimeout);
+				updateTimeout = setTimeout(function() {
+					setState(inputStatePath, input.val());
+				}, 1000);
 			});
 		});
 

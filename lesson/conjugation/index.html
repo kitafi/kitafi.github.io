@@ -1,5 +1,6 @@
 <html>
 <head>
+	<title>Conjugation</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
 <link href="/css/style.css" rel="stylesheet">
@@ -17,6 +18,32 @@
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
                 <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="unitsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Units
+                </a>
+                <div class="dropdown-menu">
+                    
+                        
+                        <a class="dropdown-item" href="/unit/basic-conversation">
+                            Basic Conversation
+                        </a>
+                        
+                    
+                        
+                        <a class="dropdown-item" href="/unit/conjugation">
+                            Conjugation
+                        </a>
+                        
+                    
+                        
+                        <a class="dropdown-item" href="/unit/food-and-drink">
+                            Food and Drinks
+                        </a>
+                        
+                    
+                </div>
             </li>
             
             <li class="nav-item dropdown">
@@ -74,8 +101,8 @@
     </div>
 </nav>
 
-
-	<div id="lesson" class="carousel slide">
+	
+	<div id="lesson" class="carousel slide" data-id="conjugation">
 		<ol class="carousel-indicators">
 			
 				<li data-target="#lesson" data-slide-to="0"
@@ -96,6 +123,7 @@
 				<h3 class="instruction">Swahili verbs often start with <code>ku</code> in the <em>infinitive</em> form.</h3>
 				
 				
+				
 					<div class="language-box english ">
 						
 							
@@ -106,6 +134,8 @@
 						
 					</div>
 				
+				
+				
 					<div class="language-box swahili ">
 						
 							
@@ -115,6 +145,7 @@
 							
 						
 					</div>
+				
 				
 
 				<div class="action">
@@ -131,6 +162,7 @@
 				<h3 class="instruction">To <em>conjugate</em> this verb in the present tense, the prefix <code>ku</code> is first dropped, and other prefixes are added to indicate <em>who</em> is performing the verb and <em>when</em> they are performing it. In this case, <code>ni</code> is the prefix for the first person (I), and <code>na</code> is the prefix for the present tense.</h3>
 				
 				
+				
 					<div class="language-box english ">
 						
 							
@@ -141,6 +173,8 @@
 						
 					</div>
 				
+				
+				
 					<div class="language-box swahili ">
 						
 							
@@ -150,6 +184,7 @@
 							
 						
 					</div>
+				
 				
 
 				<div class="action">
@@ -164,6 +199,7 @@
 				 data-type="learn">
 				
 				
+				
 					<div class="language-box english ">
 						
 							
@@ -173,6 +209,8 @@
 							
 						
 					</div>
+				
+				
 				
 					<div class="language-box swahili ">
 						
@@ -192,10 +230,14 @@
 						
 					</div>
 				
+				
 
 				<div class="action">
 				
 				
+					<button class="start-over">
+						Start over
+					</button>
 					
 						<a href="/lesson/greeting">
 							Next lesson
@@ -216,6 +258,7 @@
 			<span class="sr-only">Next</span>
 		</a>
 	</div>
+	
 
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
