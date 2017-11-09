@@ -89,6 +89,16 @@ h3.instruction {
 .language-box input:focus {
     outline: none;
 }
+.language-box select {
+  background: none;
+  border: none;
+  color: #dfdfdf;
+  padding-right: 20px;
+}
+.language-box option {
+  background: none;
+  color: white;
+}
 .tooltip {
     font-size: 1em;
 }

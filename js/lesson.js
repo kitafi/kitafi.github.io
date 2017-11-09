@@ -148,6 +148,14 @@ $(function() {
 		if (type == 'interactive') {
 			var inputMap = {};
 
+			// Coordinate select elements
+			var selectEls = item.find('select');
+			for (let si = 0 ; si < selectEls.length ; si++) {
+				$(selectEls[si]).change(function() {
+					$(selectEls[(si + selectEls.length / 2) % selectEls.length]).val($(this).val());
+				});
+			}
+
 			item.find('input').each(function() {
 				var input = $(this);
 				var name = input.attr('name');
@@ -170,7 +178,8 @@ $(function() {
 					return input.data('expected') === input.val();
 				}
 				else {
-					return input.data('expected').toLowerCase() == input.val().toLowerCase();
+					return input.data('expected').toLowerCase().replace(/[\.\,\!\?]/g, '') ==
+						   input.val().toLowerCase().replace(/[\.\,\!\?]/g, '');
 				}
 			};
 
@@ -188,6 +197,9 @@ $(function() {
 					}
 					else {
 						inputList[i].removeClass('wrong').addClass('correct');
+
+						// Put the exact expected answer in
+						setInput(inputList[i], inputList[i].data('expected'));
 					}
 				}
 
@@ -209,6 +221,7 @@ $(function() {
 				inputList.forEach(function(input) {
 					setInput(input, input.data('expected'));
 				});
+				gradeButton.click();
 			});
 
 			item.find('input').each(function() {
