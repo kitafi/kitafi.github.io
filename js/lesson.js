@@ -120,11 +120,12 @@ $(function() {
 	$('.carousel-item').each(function() {
 		var item = $(this);
 		var type = item.data('type');
+		var uuid = item.data('uuid');
 
 		// Ensure the input resizes with the text content
 		item.find('input').each(function() {
 			var input = $(this);
-			var inputStatePath = ['input', item.index(), input.index()];
+			var inputStatePath = ['input', uuid, input.index()];
 			var inputState = getState(inputStatePath);
 			var updateTimeout;
 
@@ -185,6 +186,12 @@ $(function() {
 
 			var gradeButton = item.find('.grade');
 			var solutionButton = item.find('.solution');
+			var alreadyGradedCorrect = false;
+
+			// If the question has already been solved
+			if (getState(['correct', uuid])) {
+				gradeButton.addClass('correct').text('Correct');
+			}
 
 			var gradeQuestion = function() {
 				var correct = true;
@@ -206,9 +213,12 @@ $(function() {
 				if (correct) {
 					gradeButton.text('Correct').addClass('correct').removeClass('wrong');
 					inputList[inputList.length - 1].blur();
+					setState(['correct', uuid], true);
 				}
 				else {
 					gradeButton.text('Try again').addClass('wrong').removeClass('correct');
+					setState(['correct', uuid], false);
+					
 					setTimeout(function() {
 						if (! gradeButton.hasClass('correct'))
 							gradeButton.text('Check answer').removeClass('wrong');
@@ -229,6 +239,11 @@ $(function() {
 				var inputIndex = inputList.length;
 				inputList.push(input);
 				var name = input.attr('name');
+
+				// If the input was already marked as correct
+				if (getState(['correct', uuid])) {
+					input.addClass('correct');
+				}
 
 				input.keyup(function(e) {
 					if (e.which == 13) {
