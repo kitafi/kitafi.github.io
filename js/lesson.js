@@ -218,7 +218,7 @@ $(function() {
 				else {
 					gradeButton.text('Try again').addClass('wrong').removeClass('correct');
 					setState(['correct', uuid], false);
-					
+
 					setTimeout(function() {
 						if (! gradeButton.hasClass('correct'))
 							gradeButton.text('Check answer').removeClass('wrong');
